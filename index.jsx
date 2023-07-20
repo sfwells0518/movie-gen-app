@@ -20,13 +20,8 @@ document.getElementById("send-btn").addEventListener("click", () => {
   }
 });
 
-const headers = {
-  "User-Agent": "SW Movie Gen App"
-};
-
 async function fetchBotReply(outline) {
   const response = await openai.createCompletion({
-    headers: headers,
     model: "text-davinci-003",
     prompt: `Generate a short message to enthusiastically say an outline sounds interesting and that you need a few moments to think about it.
     ###
@@ -49,7 +44,6 @@ async function fetchBotReply(outline) {
 
 async function fetchSynopsis(outline) {
   const response = await openai.createCompletion({
-    headers: headers,
     model: "text-davinci-003",
     prompt: `Generate an engaging, professional and marketable movie synopsis based on an outline. The synopsis should include actors' names in brackets after each character. Choose actors that would particularly suit the role.
     ###
@@ -69,7 +63,6 @@ async function fetchSynopsis(outline) {
 
 async function fetchTitle(synopsis) {
   const response = await openai.createCompletion({
-    headers: headers,
     model: "text-davinci-003",
     prompt: `Generate a catchy movie title for this synopsis: 
     ${synopsis}`,
@@ -83,7 +76,6 @@ async function fetchTitle(synopsis) {
 
 async function fetchStars(synopsis) {
   const response = await openai.createCompletion({
-    headers: headers,
     model: "text-davinci-003",
     prompt: `Extract the names in brackets from the synopsis.
     ###
@@ -100,7 +92,6 @@ async function fetchStars(synopsis) {
 
 async function fetchImagePrompt(title, synopsis) {
   const response = await openai.createCompletion({
-    headers: headers,
     model: "text-davinci-003",
     prompt: `Give me a short description of an image which could be used to advertise a movie based on a title and synopsis. The description should be rich in visual detail, but contain no names.
     ###
@@ -124,7 +115,6 @@ async function fetchImagePrompt(title, synopsis) {
 
 async function fetchImageUrl(imagePrompt) {
   const response = await openai.createImage({
-    headers: headers,
     prompt: `${imagePrompt}. There should be no text in this image.`,
     n: 1,
     size: "256x256",
