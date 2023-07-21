@@ -69,7 +69,8 @@ async function fetchTitle(synopsis) {
     max_tokens: 25,
     temperature: 0.7,
   });
-  const title = response.data.choices[0].text.trim();
+  let title = response.data.choices[0].text.trim();
+  title = title.replace(/"/g, '');
   document.getElementById("output-title").innerText = title;
   fetchImagePrompt(title, synopsis);
 }

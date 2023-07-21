@@ -228,6 +228,7 @@ button:hover {
 
 .view-pitch-btn:hover {
   box-shadow: 1px 1px 5px 1px var(--medium-dark);
+  background: var(--dark-yellow);
 }
 
 img.loading {
@@ -247,10 +248,33 @@ img.loading {
   padding: 1em;
 }
 
+.output-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .output-img-container>img {
-  width: 100%;
+  width: 65%;
   border-radius: var(--border-rad-lg);
   box-shadow: 1px 1px 5px 1px var(--dark);
+}
+
+#output-title {
+  font-size: 1.25em;
+  quotes: none;
+  font-style: italic;
+  margin-bottom: .25;
+  text-align: center;
+}
+
+#output-stars {
+  font-size: 1em;
+  margin-bottom: .25;
+  text-align: center;
+}
+#output-text {
+  font-size: .9em;
 }
 
 /* =================
